@@ -13,215 +13,38 @@ Disusun Oleh  : Raziy Ibrahim     - 4523210138
 <img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/d56f113d-bdf0-4778-9d8d-df7fdfbc0b07" />
 
 
-3. Membuat Tabel Penjual yang memuat ID_Penjual sebagai Primary Key.
-```sql
-CREATE TABLE Penjual (
-    ID_Penjual INT AUTO_INCREMENT PRIMARY KEY,
-    Nama_Penjual VARCHAR(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-![Screenshot 2024-12-31 104309](https://github.com/user-attachments/assets/f4ccddcc-5872-42f0-8a23-688eba58254b)
+3. Memeriksa Git Versi jika sudah install untuk menandakan bahwa Git sudah terinstall
+<img width="245" height="54" alt="image" src="https://github.com/user-attachments/assets/d91b3f32-fbad-4c3d-aea0-b5a41802519a" />
 
-4. Membuat Tabel Pembeli yang membuat NoTelp_Pembeli sebagai Primary key.
-```sql
-CREATE TABLE Pembeli (
-    NoTelp_Pembeli BIGINT(20) PRIMARY KEY,
-    Nama_Pembeli VARCHAR(100),
-    Jumlah BIGINT(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-![Screenshot 2025-01-05 214902](https://github.com/user-attachments/assets/7f14902e-c0bc-4bc7-9366-0ccbbc752968)
+4. Merubah config username dan juga email di Gitbash
+<img width="436" height="89" alt="image" src="https://github.com/user-attachments/assets/3404b661-361c-4bd0-bd58-ed17713920d0" />
 
-5. Membuat Tabel Transaksi yang memuat ID_Transaksi sebagai Primary Key, dan memiliki beberapa Foriegn Key yaitu (NoTelp_Pembeli dari tabel Pembeli, ID_Penjual dari tabel penjual dan, ID_Barang dari tabel barang)
-```sql
-CREATE TABLE Transaksi (
-    ID_Transaksi INT AUTO_INCREMENT PRIMARY KEY,
-    Tanggal_Transaksi TIMESTAMP NOT NULL,
-    ID_Barang INT,
-    FOREIGN KEY (ID_Barang) REFERENCES barang(ID_Barang),
-    ID_Penjual INT,
-    FOREIGN KEY (ID_Penjual) REFERENCES penjual(ID_Penjual),
-    NoTelp_Pembeli BIGINT(20),
-    FOREIGN KEY (NoTelp_Pembeli) REFERENCES pembeli(NoTelp_Pembeli),
-    Status_Transaksi ENUM ('Berhasil', 'Proses', 'Gagal'),
-    Total_Bayar BIGINT(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
-```
-![Screenshot 2024-12-31 112353](https://github.com/user-attachments/assets/9c1d81d2-1862-4832-88f3-d6efd99a5824)
+5. Push project menggunakan Git
+<img width="480" height="162" alt="image" src="https://github.com/user-attachments/assets/00e8417a-3e46-459d-aa68-fe78d70dc540" />
 
-6. Menginput 20 data dummy ke tabel barang.
-```sql
-INSERT INTO barang (Nama_Barang, Harga_Barang) VALUES
-('Telkomsel 5000', 5700),
-('Telkomsel 10000', 10700),
-('Telkomsel 20000', 20700),
-('Telkomsel 30000', 30700),
-('Telkomsel 50000', 50700),
-('Indosat 5000', 5500),
-('Indosat 10000', 10500),
-('Indosat 20000', 20500),
-('Indosat 30000', 30500),
-('Indosat 50000', 50500),
-('Three 5000', 5500),
-('Three 10000', 10500),
-('Three 20000', 20500),
-('Three 30000', 30500),
-('Three 50000', 50500),
-('XL 5000', 5800),
-('XL 10000', 10800),
-('XL 20000', 20800),
-('XL 30000', 30800),
-('XL 50000', 50800);
-```
-![Screenshot 2024-12-31 173427](https://github.com/user-attachments/assets/8a44f144-2022-4479-b514-3b1b18b32198)
-![Screenshot 2024-12-31 173443](https://github.com/user-attachments/assets/2b9a7c21-237f-43b9-87f2-79ec429e6b1a)
+6. Add origin ke Project
+<img width="446" height="41" alt="image" src="https://github.com/user-attachments/assets/95f3e535-30a0-47d3-a1b7-ecf4d2b034c2" />
 
-7. Menginput 20 data dummy ke tabel penjual.
-```sql
-INSERT INTO penjual (Nama_Penjual) VALUES
-('Al Fatih'),
-('Raziq'),
-('Fazril'),
-('Andi Ode'),
-('Andhika'),
-('Bambang'),
-('Bima'),
-('Chika'),
-('Dimas'),
-('Ernanda'),
-('Fauzi'),
-('Firman'),
-('Kenan'),
-('Lina'),
-('Mirna'),
-('Nabila'),
-('Priska'),
-('Rita Ora'),
-('Sinta Uya'),
-('Tiara');
-```
-![Screenshot 2024-12-31 173503](https://github.com/user-attachments/assets/575efc94-25bb-4f52-a0bd-3aa956e22f3b)
-![Screenshot 2024-12-31 173512](https://github.com/user-attachments/assets/541a277a-bfa8-4c45-b7c4-53cc058f4602)
+7. Menggunakan command Git Branch
+<img width="401" height="43" alt="image" src="https://github.com/user-attachments/assets/4185f7ac-c47a-4cb8-84ea-9a911e708b30" />
 
-8. Menginput 20 data dummy ke tabel pembeli.
-```sql
-INSERT INTO pembeli (NoTelp_Pembeli, Nama_Pembeli, Jumlah) VALUES
-(62895403278340, 'Andini', 5000),
-(6285899862153, 'Bisma', 10000),
-(6289500999421, null, 15000),
-(6285710750840, 'Krisna', 20000),
-(6281382221356, 'Lisa', 30000),
-(6285782277592, 'Bruno', 50000),
-(6483818200604, 'Rose', 20000),
-(6285259877688, 'Billi', 30000),
-(6289645338911, null, 50000),
-(6281735598282, 'Dinda', 10000),
-(628952997931, 'Reza', 5000),
-(6287859247680, 'Keiza', 20000),
-(6286592675902, 'Eki', 50000),
-(6285766246376, 'Pita', 20000),
-(6285831520460, null, 10000),
-(6287274500662, 'Asri', 30000),
-(6285734675445, 'Ziva', 5000),
-(628953287391, 'Yeri', 10000),
-(6285800975422, 'Wendi', 20000),
-(6289703058329, 'Audie', 30000);
-```
-![Screenshot 2024-12-31 173330](https://github.com/user-attachments/assets/15b0931d-830b-4096-a446-50fc012081d8)
-![Screenshot 2024-12-31 173341](https://github.com/user-attachments/assets/5ea7022d-586c-498e-91c9-db1e25701eac)
+8. Clone File Repository dari Github
+<img width="514" height="135" alt="image" src="https://github.com/user-attachments/assets/08ea0d70-44d4-4cbd-a5e7-c81cc77801b8" />
 
-9. Menginput 20 data dummy ke tabel transaksi.
-```sql
-INSERT INTO transaksi (Tanggal_Transaksi, ID_Barang, ID_Penjual, NoTelp_Pembeli, Status_Transaksi, Total_Bayar) VALUES
-(CURRENT_TIMESTAMP(), 4, 1, 6281382221356, 'Berhasil', 32000),
-(CURRENT_TIMESTAMP(), 17, 1, 6281735592882, 'Berhasil', 12000);
-```
-```sql
-INSERT INTO transaksi (Tanggal_Transaksi, ID_Barang, ID_Penjual, NoTelp_Pembeli, Status_Transaksi, Total_Bayar) VALUES
-(CURRENT_TIMESTAMP(), 4, 2, 6282724050662, 'Gagal', 32000),
-(CURRENT_TIMESTAMP(), 3, 2, 6282878907512, 'Berhasil', 22000);
-```
-```sql
-INSERT INTO transaksi (Tanggal_Transaksi, ID_Barang, ID_Penjual, NoTelp_Pembeli, Status_Transaksi, Total_Bayar) VALUES
-(CURRENT_TIMESTAMP(), 17, 3, 6283357332189, 'Berhasil', 12000),
-(CURRENT_TIMESTAMP(), 18, 3, 6283579023422, 'Berhasil', 22000);
-```
-```sql
-INSERT INTO transaksi (Tanggal_Transaksi, ID_Barang, ID_Penjual, NoTelp_Pembeli, Status_Transaksi, Total_Bayar) VALUES
-(CURRENT_TIMESTAMP(), 9, 3, 6285259877688, 'Berhasil', 32000),
-(CURRENT_TIMESTAMP(), 8, 3, 6285710750840, 'Berhasil', 22000),
-(CURRENT_TIMESTAMP(), 6, 3, 6285743675445, 'Berhasil', 7000);
-```
-```sql
-INSERT INTO transaksi (Tanggal_Transaksi, ID_Barang, ID_Penjual, NoTelp_Pembeli, Status_Transaksi, Total_Bayar) VALUES
-(CURRENT_TIMESTAMP(), 8, 4, 6285766246376, 'Berhasil', 22000),
-(CURRENT_TIMESTAMP(), 10, 4, 6285782277592, 'Berhasil', 52000),
-(CURRENT_TIMESTAMP(), 7, 4, 6285813520402, 'Gagal', 12000),
-(CURRENT_TIMESTAMP(), 7, 4, 6285899862153, 'Berhasil', 12000);
-```
-```sql
-INSERT INTO transaksi (Tanggal_Transaksi, ID_Barang, ID_Penjual, NoTelp_Pembeli, Status_Transaksi, Total_Bayar) VALUES
-(CURRENT_TIMESTAMP(), 10, 6, 6286692675902, 'Berhasil', 52000),
-(CURRENT_TIMESTAMP(), 12, 6, 6289509099421, 'Gagal', 12000),
-(CURRENT_TIMESTAMP(), 11, 7, 6289562997231, 'Berhasil', 7000);
-```
-```sql
-INSERT INTO transaksi (Tanggal_Transaksi, ID_Barang, ID_Penjual, NoTelp_Pembeli, Status_Transaksi, Total_Bayar) VALUES
-(CURRENT_TIMESTAMP(), 18, 7, 6483818206034, 'Berhasil', 22000),
-(CURRENT_TIMESTAMP(), 11, 10, 62895403278340, 'Berhasil', 7000),
-(CURRENT_TIMESTAMP(), 15, 10, 62896453382911, 'Berhasil', 52000),
-(CURRENT_TIMESTAMP(), 14, 11, 62897030583829, 'Berhasil', 32000);
-```
-![Screenshot 2024-12-31 185131](https://github.com/user-attachments/assets/1a8ea19b-164f-4c9b-b8d4-1ad98b2118c0)
-![Screenshot 2024-12-31 185141](https://github.com/user-attachments/assets/b0648b3c-8496-40b4-978c-7388f887680e)
+9. Commit sebuah fitur dalam sebuah website, dan menggunakan branch bersama (sharing)
+<img width="427" height="79" alt="image" src="https://github.com/user-attachments/assets/bffe24ba-79bc-4a66-9abf-aadfc6a161d0" />
 
-10. Menghapus data dari tabel transaksi dimana ID_Transaksi = 40.
-```sql
-DELETE FROM `transaksi` WHERE ID_Transaksi = 40;
-```
-![Screenshot 2024-12-31 190229](https://github.com/user-attachments/assets/88560435-5699-4373-8955-b0d6cfda8eff)
+10. Push sebuah fitur baru
+<img width="543" height="212" alt="image" src="https://github.com/user-attachments/assets/2c788ab3-65a0-4f49-b5b9-5f67df20908f" />
 
+11. Jika sesorang ingin Push projectnya ke sebuah repositori project maka harus di acc dulu
+<img width="1448" height="751" alt="image" src="https://github.com/user-attachments/assets/46b0f04c-35f9-47ee-bc98-d54d1dd2274e" />
 
-11. Mengedit data NoTelp_Pembeli pada tabel pembeli dimana Nama_Pembeli = Rose.
-```sql
-UPDATE pembeli
-SET NoTelp_Pembeli = 6283818206034
-WHERE Nama_Pembeli = ‘Rose’;
-```
-![Screenshot 2025-01-05 194739](https://github.com/user-attachments/assets/821f663b-32fe-47b2-a38f-2ec93abc71ca)
+12. Jika sudah di acc maka akan seperti ini
+<img width="987" height="353" alt="image" src="https://github.com/user-attachments/assets/de233962-6740-4a9a-853a-fdff252a540b" />
 
-12. Membuat pengguna bernama raziy yang dapat mengakses database dari localhost dengan kata sandi raziy123.
-```sql
-CREATE USER `raziy`@`localhost`
-IDENTIFIED BY ‘raziy123’;
-```
-![Screenshot 2025-01-03 165512](https://github.com/user-attachments/assets/89ef0bd4-3c8c-45ed-bb4e-9f6ea9a4ce29)
+13. Git checkout main
+<img width="445" height="67" alt="image" src="https://github.com/user-attachments/assets/f65c9cb1-ae5c-4dd3-8965-fb3506e0b970" />
 
-13. Membuat pengguna bernama fatih yang dapat mengakses database dari localhost dengan kata sandi fatih123.
-```sql
-CREATE USER `fatih`@`localhost`
-IDENTIFIED BY ‘fatih123’;
-```
-![Screenshot 2025-01-03 165725](https://github.com/user-attachments/assets/a2b5b29d-5470-402c-a27e-4bbe166f098e)
-
-14. Membuat pengguna bernama fazril yang dapat mengakses database dari localhost dengan kata sandi fazril123.
-```sql
-CREATE USER `fazril`@`localhost`
-IDENTIFIED BY ‘fazril123’;
-```
-![Screenshot 2025-01-03 165821](https://github.com/user-attachments/assets/6fdd2dcb-b8ea-4c11-b2d5-a6eecbdfd6fa)
-
-13. Raziy dapat hak akses berupa delete, insert, dan update ke database toko_pulsa.
-```sql
-GRANT DELETE, INSERT, UPDATE ON toko_pulsa. * TO `raziy`@`localhost` IDENTIFIED BY ‘raziy123’;
-```
-![Screenshot 2025-01-03 174448](https://github.com/user-attachments/assets/cc373f79-ead3-46b1-8ff5-926fd2c7aa6b)
-
-14. Fatih dapat hak akses berupa select ke database toko_pulsa.
-```sql
-GRANT SELECT ON toko_pulsa. * TO `fatih`@`localhost` IDENTIFIED BY ‘fatih123’;
-```
-![Screenshot 2025-01-05 193158](https://github.com/user-attachments/assets/38a19440-d698-49b0-b8fe-6158053e2ae5)
-
-
-
+14. Gunakan command pull origin main
+<img width="423" height="81" alt="image" src="https://github.com/user-attachments/assets/c59e2b5c-d03f-4333-ba23-fdd2e6deddcc" />
